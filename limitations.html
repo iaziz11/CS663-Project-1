@@ -1,12 +1,106 @@
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="datasets.html">Datasets</a></li>
-    <li><a href="multimodal.html">Multimodal Detection</a></li>
-    <li><a href="narration.html">Audio Narration</a></li>
-    <li><a href="realtime.html">Real-Time Systems</a></li>
-    <li><a href="limitations.html">Limitations</a></li>
-    <li><a href="bibliography.html">Bibliography</a></li>
-  </ul>
-</nav>
-limitations
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Limitations</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Limitations of Current Systems</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="dataset.html">Datasets</a>
+        <a href="training.html">Training Models</a>
+        <a href="delivery.html">Live Delivery</a>
+        <a href="limitations.html">Limitations</a>
+        <a href="bibliography.html">Bibliography</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Challenges and Open Problems</h2>
+      <p>
+        While automatic commentary systems for soccer show great promise, there
+        remain significant limitations across data collection, model accuracy,
+        hardware delivery, and accessibility standards.
+      </p>
+
+      <section>
+        <h3>Dataset Limitations</h3>
+        <p>
+          Current datasets such as SoccerNet and MatchTime provide valuable
+          resources, but they still face shortcomings. SoccerNet suffers from
+          <em>caption misalignment</em>, where commentary may lag or lead actual
+          play by several seconds [1]. MatchTime addresses this issue, but its
+          coverage is limited to a smaller subset of matches. Positional
+          tracking datasets, while precise, lack the visual richness needed for
+          commentary. Furthermore, annotation remains extremely labor-intensive:
+          <q
+            >the high cost of manual annotation restricts both dataset size and
+            diversity</q
+          >
+          [2].
+        </p>
+      </section>
+
+      <section>
+        <h3>Model Performance</h3>
+        <p>
+          Even state-of-the-art models face challenges. Identifying individual
+          players reliably across a 90-minute match is still unresolved. Models
+          can confuse visually similar events (e.g., a
+          <em>corner kick vs. free kick</em>) [1]. Ball detection remains
+          especially difficult: its small size, rapid speed, and frequent
+          occlusion mean that even YOLOv8, which performs well for players and
+          referees, struggles with consistent ball recognition [3]. Vision
+          Transformers improve robustness to lighting and jersey variation, but
+          <em>their accuracy drops with low-resolution video</em> [3].
+        </p>
+      </section>
+
+      <section>
+        <h3>Hardware and Delivery Constraints</h3>
+        <p>
+          Stadiums vary widely in their technological infrastructure. Some elite
+          arenas are equipped with
+          <em>high-speed Wi-Fi, FM transmitters, and accessibility services</em
+          >, while others lack even basic broadcast infrastructure. This creates
+          an equity gap: fans with access to high-tech stadiums or personal
+          smartphones enjoy better services than those without. Battery life,
+          connectivity, and device distribution all present practical barriers
+          to reliable delivery.
+        </p>
+      </section>
+
+      <section>
+        <h3>Latency and Synchronization</h3>
+        <p>
+          Real-time commentary is only valuable if it is synchronized with live
+          play. Even a 1–2 second delay between the action and the commentary
+          can break immersion and render the system unusable for blind fans [1].
+          Synchronization is especially challenging when broadcasting across
+          multiple platforms (in-stadium devices, mobile apps, and streaming
+          services) since each introduces its own buffering and latency.
+        </p>
+      </section>
+
+      <section>
+        <h3>Accessibility Standards</h3>
+        <p>
+          Despite progress, many solutions are not fully compliant with global
+          accessibility standards. The
+          <em>Web Content Accessibility Guidelines (WCAG 2.1)</em> [5] and
+          FIFA’s <em>Accessibility Guide</em> [4] provide clear recommendations,
+          yet implementation is inconsistent. Without universal enforcement,
+          systems risk excluding users with varying degrees of visual
+          impairment.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Your Name – Graduate Research Tutorial</p>
+    </footer>
+  </body>
+</html>

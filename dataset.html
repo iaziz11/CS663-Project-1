@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Datasets for Soccer Annotation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Datasets for Soccer Annotation</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="dataset.html">Datasets</a>
+        <a href="training.html">Training Models</a>
+        <a href="delivery.html">Live Delivery</a>
+        <a href="limitations.html">Limitations</a>
+        <a href="bibliography.html">Bibliography</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Key Resources</h2>
+      <p>
+        Building systems that automatically generate commentary for soccer games
+        requires large, well-structured datasets. Below are some of the most
+        important resources currently available to researchers. Each dataset is
+        unique in how it captures soccer events and in the type of annotations
+        provided.
+      </p>
+
+      <section>
+        <h3>SoccerNet</h3>
+        <p>
+          <strong>SoccerNet</strong> is one of the largest public soccer
+          datasets, containing over <em>500 full matches</em> collected from
+          broadcast television. Each game is annotated with a set of
+          <em>event labels</em> such as goals, cards, substitutions, and
+          kick-offs. It also includes a <em>captioning subset</em>, where
+          commentary sentences are aligned with specific video moments.
+        </p>
+        <p>
+          <u>What sets SoccerNet apart:</u> Its size and diversity make it the
+          “go-to” dataset for many researchers. However, the alignment between
+          video and captions can be noisy since commentary is often delayed or
+          anticipatory.
+        </p>
+      </section>
+
+      <section>
+        <h3>MatchTime [1]</h3>
+        <p>
+          <strong>MatchTime</strong> was developed to improve upon SoccerNet’s
+          captioning alignment issues. It contains over
+          <em>29,000 video–text pairs</em> with commentary carefully
+          synchronized to the video events. It also introduces the
+          <strong>MatchVoice model</strong>
+          that pairs a visual encoder with a large language model.
+        </p>
+        <p>
+          <u>What sets MatchTime apart:</u> Unlike SoccerNet, it provides
+          <em>precise temporal alignment</em>, ensuring the commentary describes
+          what is happening <em>in the moment</em>. This makes it highly useful
+          for training systems intended for live accessibility.
+        </p>
+      </section>
+
+      <section>
+        <h3>Positional Tracking Data [2]</h3>
+        <p>
+          <strong>Positional Tracking Data</strong> is a type of dataset
+          collected from sensors or optical tracking systems used in stadiums.
+          It records the <em>x,y coordinates of all players and the ball</em> at
+          a frequency of around <em>25 frames per second</em>. Unlike video
+          datasets, it does not provide images, but instead precise
+          spatio-temporal information.
+        </p>
+        <p>
+          <u>What sets positional data apart:</u> It allows researchers to
+          analyze <em>tactics, formations, and player movement</em> without
+          dealing with the noise of raw video. For example, counterattacks can
+          be detected by analyzing player trajectories. Its limitation is that
+          it lacks visual/audio context, so it often needs to be combined with
+          video data.
+        </p>
+      </section>
+
+      <section>
+        <h3>KKS Lech Poznań Tactical Dataset [3]</h3>
+        <p>
+          The <strong>KKS Lech Poznań Tactical Dataset</strong> is a
+          hand-labeled dataset consisting of
+          <em>15 tactical camera recordings</em>
+          of professional matches. The dataset provides detailed
+          <em>bounding box annotations</em> for players, referees, goalkeepers,
+          and the ball. It also includes <em>segmentation masks</em>, which
+          improve jersey color recognition.
+        </p>
+        <p>
+          <u>What sets KKS apart:</u> Unlike SoccerNet and MatchTime, this
+          dataset is not broadcast footage — it comes from a fixed tactical
+          camera that records the <em>entire pitch without cuts</em>. This makes
+          it ideal for computer vision research on tracking, since there are no
+          interruptions or changes in perspective. It has also been used to
+          benchmark algorithms like
+          <em>YOLOv8, Faster R-CNN, Mask R-CNN, Deep SORT,</em> and
+          <em>Vision Transformers</em>.
+        </p>
+      </section>
+
+      <figure>
+        <img
+          src="media/matchtime.png"
+          alt="Matchtime dataset comparison"
+          width="900"
+        />
+        <figcaption>
+          Figure 2: Comparison of SoccerNet and MatchTime datasets in regards to
+          temporal alignment
+        </figcaption>
+      </figure>
+    </main>
+
+    <footer>
+      <p>© 2025 Your Name – Graduate Research Tutorial</p>
+    </footer>
+  </body>
+</html>

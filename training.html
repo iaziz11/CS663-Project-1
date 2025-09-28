@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Training Models for Automatic Commentary</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Training Models for Automatic Commentary</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="dataset.html">Datasets</a>
+        <a href="training.html">Training Models</a>
+        <a href="delivery.html">Live Delivery</a>
+        <a href="limitations.html">Limitations</a>
+        <a href="bibliography.html">Bibliography</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>From Data to Commentary</h2>
+      <p>
+        Among the different approaches, Object Detection Pipelines using YOLOv8
+        combined with Vision Transformers (ViTs) for team classification is
+        particularly powerful. It provides real-time detection of players,
+        referees, and the ball, while ViTs handle robust team classification
+        under variable lighting and occlusions.
+      </p>
+
+      <h3>Why YOLOv8 + ViTs?</h3>
+      <ul>
+        <li>
+          <strong>Real-time performance:</strong> YOLOv8 is fast enough for live
+          match commentary.
+        </li>
+        <li>
+          <strong>Small-object detection:</strong> Effective for detecting the
+          soccer ball and occluded players.
+        </li>
+        <li>
+          <strong>Robust team classification:</strong> Vision Transformers learn
+          contextual visual features beyond simple color heuristics.
+        </li>
+        <li>
+          <strong>Modular pipeline:</strong> Detection, tracking, feature
+          extraction, and commentary generation can be separated and improved
+          independently.
+        </li>
+      </ul>
+
+      <h3>Architecture Overview</h3>
+      <p>The pipeline consists of:</p>
+      <ol>
+        <li>
+          <strong>Video Preprocessing:</strong> Extract frames and normalize
+          images.
+        </li>
+        <li>
+          <strong>Object Detection:</strong> YOLOv8 generates bounding boxes for
+          players, referees, and the ball.
+        </li>
+        <li>
+          <strong>Object Tracking:</strong> DeepSORT or a similar tracker
+          assigns consistent IDs across frames.
+        </li>
+        <li>
+          <strong>Feature Extraction:</strong> Movement trajectories from the
+          tracker, and visual embeddings using a Vision Transformer for player
+          classification.
+        </li>
+        <li>
+          <strong>Temporal Aggregation:</strong> Combine movement and visual
+          features into a sequence for the language model.
+        </li>
+        <li>
+          <strong>Commentary Generation:</strong> A transformer-based language
+          model outputs commentary text based on the aggregated features.
+        </li>
+      </ol>
+
+      <h3>Pseudocode: Commentary Pipeline</h3>
+      <pre>
+# Step 1: Preprocess video
+frames = extract_frames(video, fps=25)
+frames = resize(frames, (640, 640))
+frames = normalize(frames)
+
+# Step 2: Detect objects
+detections = yolo_v8_detector(frames)
+
+# Step 3: Track objects
+tracks = deep_sort(detections)   # assigns unique IDs to objects
+
+# Step 4: Extract features
+movement_features = extract_trajectories(tracks)
+visual_features = vision_transformer(frames, detections)
+
+# Step 5: Aggregate features over time
+sequence_features = temporal_aggregator(movement_features, visual_features)
+
+# Step 6: Generate commentary
+commentary = language_model.generate(sequence_features)
+      </pre>
+
+      <h3>PyTorch Example: Building the Pipeline</h3>
+      <pre>
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# Placeholder imports (you would replace these with actual implementations)
+from yolov8 import YOLOv8Detector
+from deep_sort import DeepSORT
+from transformer import VisionEncoder, CommentaryGenerator
+
+# Initialize models
+detector = YOLOv8Detector(pretrained=True)
+tracker = DeepSORT()
+vision_encoder = VisionEncoder()
+language_model = CommentaryGenerator()
+
+# Loss and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(language_model.parameters(), lr=1e-4)
+
+# Training loop (simplified)
+for epoch in range(num_epochs):
+    for video, captions in dataloader:  # video: batch of tensors, captions: ground-truth text
+        # 1. Preprocess frames
+        frames = preprocess(video)
+
+        # 2. Detect objects in frames
+        detections = detector(frames)
+
+        # 3. Track objects across frames
+        tracks = tracker.update(detections)
+
+        # 4. Extract visual features for each player
+        vis_features = vision_encoder(frames, tracks)
+
+        # 5. Aggregate temporal features (combine movement + visual)
+        sequence_features = temporal_aggregator(tracks, vis_features)
+
+        # 6. Generate commentary predictions
+        preds = language_model(sequence_features)
+
+        # 7. Compute loss vs ground truth captions
+        loss = criterion(preds, captions)
+
+        # 8. Backpropagation
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+    print(f"Epoch {epoch} - Loss: {loss.item()}")
+
+# After training, evaluate model
+evaluate(language_model, validation_set)
+      </pre>
+
+      <figure>
+        <img
+          src="media/pipeline.png"
+          alt="Model architecture diagram"
+          width="800"
+        />
+        <figcaption>
+          Figure 3: YOLOv8 + Vision Transformer pipeline for generating match
+          commentary.
+        </figcaption>
+      </figure>
+      <figure>
+        <img
+          src="media/track.png"
+          alt="Model architecture diagram"
+          width="800"
+        />
+        <figcaption>
+          Figure 4: YOLO object detection with DeepSORT tracking.
+        </figcaption>
+      </figure>
+    </main>
+
+    <footer>
+      <p>© 2025 Your Name – Graduate Research Tutorial</p>
+    </footer>
+  </body>
+</html>

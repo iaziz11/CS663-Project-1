@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Delivering Commentary to Fans</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Delivering Commentary to Fans</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="dataset.html">Datasets</a>
+        <a href="training.html">Training Models</a>
+        <a href="delivery.html">Live Delivery</a>
+        <a href="limitations.html">Limitations</a>
+        <a href="bibliography.html">Bibliography</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Hardware and Software Solutions</h2>
+      <p>
+        Making real-time commentary accessible to blind and low-vision fans
+        requires careful attention to both
+        <strong>infrastructure</strong> (hardware in stadiums) and
+        <strong>software</strong> (apps, streaming platforms). Below are the
+        main approaches.
+      </p>
+
+      <section>
+        <h3>Stadium Devices</h3>
+        <p>
+          The most direct method is to provide
+          <strong>wireless headsets</strong> in the stadium. These connect to a
+          low-latency transmitter that broadcasts real-time commentary generated
+          by human commentators or AI models. According to the
+          <em>MatchTime</em> paper,
+          <q
+            >the system must ensure near-zero delay, as even a one or two second
+            lag between the play and the commentary can severely degrade the
+            user’s experience</q
+          >
+          [1]. Modern systems use
+          <strong>FM transmitters or Wi-Fi multicast</strong> to distribute
+          synchronized audio within the stadium.
+        </p>
+      </section>
+
+      <section>
+        <h3>Mobile Applications</h3>
+        <p>
+          Smartphone-based apps provide flexibility, especially for fans who
+          already bring devices. The app can stream commentary that is
+          synchronized with live play. The key challenge is
+          <strong>synchronization</strong>: broadcast feeds, streaming apps, and
+          in-stadium events often have small timing differences. To solve this,
+          <em>MatchTime</em> introduces a caption alignment method that “shifts
+          commentary to match visual events with high precision” [1].
+        </p>
+        <p>
+          Apps can also integrate accessibility features such as adjustable
+          playback speed, volume normalization, and compatibility with screen
+          readers.
+        </p>
+      </section>
+
+      <section>
+        <h3>Streaming Integrations</h3>
+        <p>
+          Online platforms like YouTube Live, Twitch, or FIFA+ could provide
+          <strong>alternative audio tracks</strong> specifically for blind and
+          low-vision audiences. These tracks can be selected alongside the main
+          video stream, similar to choosing a different language commentary.
+        </p>
+        <p>
+          Standards such as the
+          <em>Web Content Accessibility Guidelines (WCAG 2.1)</em> [5] and
+          FIFA’s <em>Accessibility Guide</em> [4] recommend providing multiple
+          commentary channels and ensuring that assistive technologies can
+          switch between them seamlessly.
+        </p>
+      </section>
+
+      <h2>Challenges in Delivery</h2>
+      <ul>
+        <li>
+          <strong>Latency:</strong> Commentary must be synchronized with the
+          match in real time [1].
+        </li>
+        <li>
+          <strong>Bandwidth:</strong> Stadium Wi-Fi may become overloaded;
+          multicast delivery helps reduce strain.
+        </li>
+        <li>
+          <strong>Device Access:</strong> Not all fans can afford smartphones or
+          headsets; stadium-provided devices are crucial for equity.
+        </li>
+        <li>
+          <strong>Accessibility Standards:</strong> Compliance with WCAG [5] and
+          FIFA guidelines [4] ensures inclusivity.
+        </li>
+        <li>
+          <strong>Noise:</strong> Stadium sounds, especially during key events
+          such as goals or fouls, can make hearing the commentary difficult.
+          Headsets must account for this by adding noise cancelling or noise
+          dampening features.
+        </li>
+      </ul>
+
+      <figure>
+        <p style="text-align: center">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/6HysSJr9-54?si=Ll-EyNvuWinGcsQE&amp;start=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </p>
+        <figcaption>
+          Figure 5: Video showing a blind man's experience watching a live
+          soccer game.
+        </figcaption>
+      </figure>
+      <figure>
+        <p style="text-align: center">
+          <audio controls>
+            <source src="media/goal_audio.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        </p>
+        <figcaption>
+          Figure 6: Audio of a goal being scored at a soccer game.
+        </figcaption>
+      </figure>
+    </main>
+
+    <footer>
+      <p>© 2025 Your Name – Graduate Research Tutorial</p>
+    </footer>
+  </body>
+</html>
