@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Soccer Commentary Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="media/favicon.png" type="image/png" />
+  </head>
+  <body>
+    <header>
+      <h1>Annotating Soccer Games for Blind/Low Vision Fans</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="dataset.html">Datasets</a>
+        <a href="training.html">Training Models</a>
+        <a href="delivery.html">Live Delivery</a>
+        <a href="limitations.html">Limitations</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="bibliography.html">Bibliography</a>
+      </nav>
+    </header>
+
+    <main class="quiz-container">
+      <h2>Quiz: Understanding Soccer Commentary Systems</h2>
+
+      <form id="quizForm">
+        <div class="question">
+          <p>
+            1. Which dataset contains over 500 full matches with event labels
+            and captions?
+          </p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q1" value="SoccerNet" />
+              SoccerNet</label
+            >
+            <label
+              ><input type="radio" name="q1" value="MatchTime" />
+              MatchTime</label
+            >
+            <label
+              ><input type="radio" name="q1" value="KKS" /> KKS Lech
+              Poznań</label
+            >
+            <label
+              ><input type="radio" name="q1" value="Positional" /> Positional
+              Tracking Data</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>
+            2. Which model is commonly used for real-time object detection in
+            soccer commentary pipelines?
+          </p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q2" value="YOLOv8" /> YOLOv8</label
+            >
+            <label
+              ><input type="radio" name="q2" value="FasterRCNN" /> Faster
+              R-CNN</label
+            >
+            <label
+              ><input type="radio" name="q2" value="ViT" /> Vision
+              Transformer</label
+            >
+            <label
+              ><input type="radio" name="q2" value="MaskRCNN" /> Mask
+              R-CNN</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>
+            3. What is the main purpose of Vision Transformers in the commentary
+            pipeline?
+          </p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q3" value="Detection" /> Detecting the
+              ball</label
+            >
+            <label
+              ><input type="radio" name="q3" value="TeamClassification" />
+              Classifying teams</label
+            >
+            <label
+              ><input type="radio" name="q3" value="Audio" /> Generating audio
+              commentary</label
+            >
+            <label
+              ><input type="radio" name="q3" value="Preprocessing" />
+              Preprocessing video frames</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>4. Why is latency important for live commentary systems?</p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q4" value="ItIsNot" /> It does not
+              matter for blind audiences</label
+            >
+            <label
+              ><input type="radio" name="q4" value="Sync" /> Commentary must
+              match live play timing</label
+            >
+            <label
+              ><input type="radio" name="q4" value="AudioQuality" /> Only
+              affects sound quality</label
+            >
+            <label
+              ><input type="radio" name="q4" value="Device" /> Only affects
+              which device is used</label
+            >
+          </div>
+        </div>
+
+        <div class="question">
+          <p>
+            5. What is one major challenge highlighted in the video of a blind
+            fan watching a soccer game?
+          </p>
+          <div class="options">
+            <label
+              ><input type="radio" name="q5" value="VideoConfusion" />
+              Difficulty understanding action without descriptive
+              commentary</label
+            >
+            <label
+              ><input type="radio" name="q5" value="Audio" /> Background noise
+              only</label
+            >
+            <label
+              ><input type="radio" name="q5" value="Brightness" /> Screen
+              brightness issues</label
+            >
+            <label
+              ><input type="radio" name="q5" value="Battery" /> Battery life of
+              devices</label
+            >
+          </div>
+        </div>
+
+        <button type="button" id="submitBtn">Submit Answers</button>
+      </form>
+
+      <div id="result"></div>
+    </main>
+
+    <footer>
+      <p>Imran Aziz – CS663</p>
+    </footer>
+
+    <script>
+      const correctAnswers = {
+        q1: "SoccerNet",
+        q2: "YOLOv8",
+        q3: "TeamClassification",
+        q4: "Sync",
+        q5: "VideoConfusion",
+      };
+
+      document
+        .getElementById("submitBtn")
+        .addEventListener("click", function () {
+          let score = 0;
+          const total = Object.keys(correctAnswers).length;
+
+          // Reset previous colors
+          document.querySelectorAll(".options label").forEach((label) => {
+            label.classList.remove("correct", "incorrect");
+          });
+
+          for (let q in correctAnswers) {
+            const selected = document.querySelector(`input[name=${q}]:checked`);
+            const labels = document.querySelectorAll(`input[name=${q}]`);
+            labels.forEach((input) => {
+              if (input.value === correctAnswers[q]) {
+                input.parentElement.classList.add("correct"); // correct answer green
+              }
+            });
+
+            if (selected) {
+              if (selected.value === correctAnswers[q]) {
+                score++;
+              } else {
+                selected.parentElement.classList.add("incorrect"); // wrong answer red
+              }
+            }
+          }
+          document.getElementById(
+            "result"
+          ).textContent = `You scored ${score} out of ${total}.`;
+        });
+    </script>
+  </body>
+</html>

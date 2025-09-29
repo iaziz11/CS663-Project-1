@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Limitations</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="media/favicon.png" type="image/png" />
   </head>
   <body>
     <header>
@@ -14,12 +15,20 @@
         <a href="training.html">Training Models</a>
         <a href="delivery.html">Live Delivery</a>
         <a href="limitations.html">Limitations</a>
+        <a href="quiz.html">Quiz</a>
         <a href="bibliography.html">Bibliography</a>
       </nav>
     </header>
 
     <main>
       <h2>Challenges and Open Problems</h2>
+      <p style="text-align: center">
+        <audio controls>
+          <source src="media/limitations.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </p>
+
       <p>
         While automatic commentary systems for soccer show great promise, there
         remain significant limitations across data collection, model accuracy,
@@ -40,7 +49,7 @@
             >the high cost of manual annotation restricts both dataset size and
             diversity</q
           >
-          [2].
+          <a href="bibliography.html">[2]</a>.
         </p>
       </section>
 
@@ -50,12 +59,15 @@
           Even state-of-the-art models face challenges. Identifying individual
           players reliably across a 90-minute match is still unresolved. Models
           can confuse visually similar events (e.g., a
-          <em>corner kick vs. free kick</em>) [1]. Ball detection remains
-          especially difficult: its small size, rapid speed, and frequent
-          occlusion mean that even YOLOv8, which performs well for players and
-          referees, struggles with consistent ball recognition [3]. Vision
-          Transformers improve robustness to lighting and jersey variation, but
-          <em>their accuracy drops with low-resolution video</em> [3].
+          <em>corner kick vs. free kick</em>)
+          <a href="bibliography.html">[1]</a>. Ball detection remains especially
+          difficult: its small size, rapid speed, and frequent occlusion mean
+          that even YOLOv8, which performs well for players and referees,
+          struggles with consistent ball recognition
+          <a href="bibliography.html">[3]</a>. Vision Transformers improve
+          robustness to lighting and jersey variation, but
+          <em>their accuracy drops with low-resolution video</em>
+          <a href="bibliography.html">[3]</a>.
         </p>
       </section>
 
@@ -78,10 +90,11 @@
         <p>
           Real-time commentary is only valuable if it is synchronized with live
           play. Even a 1–2 second delay between the action and the commentary
-          can break immersion and render the system unusable for blind fans [1].
-          Synchronization is especially challenging when broadcasting across
-          multiple platforms (in-stadium devices, mobile apps, and streaming
-          services) since each introduces its own buffering and latency.
+          can break immersion and render the system unusable for blind fans
+          <a href="bibliography.html">[1]</a>. Synchronization is especially
+          challenging when broadcasting across multiple platforms (in-stadium
+          devices, mobile apps, and streaming services) since each introduces
+          its own buffering and latency.
         </p>
       </section>
 
@@ -90,17 +103,18 @@
         <p>
           Despite progress, many solutions are not fully compliant with global
           accessibility standards. The
-          <em>Web Content Accessibility Guidelines (WCAG 2.1)</em> [5] and
-          FIFA’s <em>Accessibility Guide</em> [4] provide clear recommendations,
-          yet implementation is inconsistent. Without universal enforcement,
-          systems risk excluding users with varying degrees of visual
-          impairment.
+          <em>Web Content Accessibility Guidelines (WCAG 2.1)</em>
+          <a href="bibliography.html">[5]</a> and FIFA’s
+          <em>Accessibility Guide</em>
+          <a href="bibliography.html">[4]</a> provide clear recommendations, yet
+          implementation is inconsistent. Without universal enforcement, systems
+          risk excluding users with varying degrees of visual impairment.
         </p>
       </section>
     </main>
 
     <footer>
-      <p>© 2025 Your Name – Graduate Research Tutorial</p>
+      <p>Imran Aziz – CS663</p>
     </footer>
   </body>
 </html>

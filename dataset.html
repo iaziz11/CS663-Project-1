@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Datasets for Soccer Annotation</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="media/favicon.png" type="image/png" />
   </head>
   <body>
     <header>
@@ -14,12 +15,19 @@
         <a href="training.html">Training Models</a>
         <a href="delivery.html">Live Delivery</a>
         <a href="limitations.html">Limitations</a>
+        <a href="quiz.html">Quiz</a>
         <a href="bibliography.html">Bibliography</a>
       </nav>
     </header>
 
     <main>
       <h2>Key Resources</h2>
+      <p style="text-align: center">
+        <audio controls>
+          <source src="media/datasets.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </p>
       <p>
         Building systems that automatically generate commentary for soccer games
         requires large, well-structured datasets. Below are some of the most
@@ -47,12 +55,12 @@
       </section>
 
       <section>
-        <h3>MatchTime [1]</h3>
+        <h3>MatchTime</h3>
         <p>
-          <strong>MatchTime</strong> was developed to improve upon SoccerNet’s
-          captioning alignment issues. It contains over
-          <em>29,000 video–text pairs</em> with commentary carefully
-          synchronized to the video events. It also introduces the
+          <strong>MatchTime</strong> <a href="bibliography.html">[1]</a> was
+          developed to improve upon SoccerNet’s captioning alignment issues. It
+          contains over <em>29,000 video–text pairs</em> with commentary
+          carefully synchronized to the video events. It also introduces the
           <strong>MatchVoice model</strong>
           that pairs a visual encoder with a large language model.
         </p>
@@ -65,12 +73,13 @@
       </section>
 
       <section>
-        <h3>Positional Tracking Data [2]</h3>
+        <h3>Positional Tracking Data</h3>
         <p>
-          <strong>Positional Tracking Data</strong> is a type of dataset
-          collected from sensors or optical tracking systems used in stadiums.
-          It records the <em>x,y coordinates of all players and the ball</em> at
-          a frequency of around <em>25 frames per second</em>. Unlike video
+          <strong>Positional Tracking Data</strong>
+          <a href="bibliography.html">[2]</a> is a type of dataset collected
+          from sensors or optical tracking systems used in stadiums. It records
+          the <em>x,y coordinates of all players and the ball</em> at a
+          frequency of around <em>25 frames per second</em>. Unlike video
           datasets, it does not provide images, but instead precise
           spatio-temporal information.
         </p>
@@ -85,10 +94,11 @@
       </section>
 
       <section>
-        <h3>KKS Lech Poznań Tactical Dataset [3]</h3>
+        <h3>KKS Lech Poznań Tactical Dataset</h3>
         <p>
-          The <strong>KKS Lech Poznań Tactical Dataset</strong> is a
-          hand-labeled dataset consisting of
+          The <strong>KKS Lech Poznań Tactical Dataset</strong>
+          <a href="bibliography.html">[3]</a> is a hand-labeled dataset
+          consisting of
           <em>15 tactical camera recordings</em>
           of professional matches. The dataset provides detailed
           <em>bounding box annotations</em> for players, referees, goalkeepers,
@@ -121,7 +131,7 @@
     </main>
 
     <footer>
-      <p>© 2025 Your Name – Graduate Research Tutorial</p>
+      <p>Imran Aziz – CS663</p>
     </footer>
   </body>
 </html>
